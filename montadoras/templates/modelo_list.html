@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista de Modelos</h1>
+
+<a href="{% url 'modelo_create' %}" class="btn btn-success mb-2">Adicionar Novo Modelo</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Montadora</th>
+      <th>Valor Referência</th>
+      <th>Motorização</th>
+      <th>Turbo</th>
+      <th>Automático</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for modelo in object_list %}
+    <tr>
+      <td>{{ modelo.nome }}</td>
+      <td>{{ modelo.montadora.nome }}</td>
+      <td>{{ modelo.valor_referencia }}</td>
+      <td>{{ modelo.motorizacao }}</td>
+      <td>{{ modelo.turbo|yesno:"Sim,Não" }}</td>
+      <td>{{ modelo.automatico|yesno:"Sim,Não" }}</td>
+      <td>
+        <a href="{% url 'modelo_update' modelo.id %}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="{% url 'modelo_delete' modelo.id %}" class="btn btn-danger btn-sm">Deletar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

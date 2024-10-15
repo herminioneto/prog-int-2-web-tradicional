@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista de Montadoras</h1>
+
+<a href="{% url 'montadora_create' %}" class="btn btn-success mb-2">Adicionar Novo</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for montadora in object_list %}
+    <tr>
+      <td>{{ montadora.nome }}</td>
+      <td>
+        <a href="{% url 'montadora_update' montadora.id %}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="{% url 'montadora_delete' montadora.id %}" class="btn btn-danger btn-sm">Deletar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
