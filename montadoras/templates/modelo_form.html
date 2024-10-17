@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h1>{% if object %}Editar Modelo{% else %}Adicionar Modelo{% endif %}</h1>
-
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-success">{% if object %}Salvar Alterações{% else %}Adicionar{% endif %}</button>
-  <a href="{% url 'modelo_list' %}" class="btn btn-secondary">Cancelar</a>
-</form>
+<div class="container mt-4">
+  <h2>{% if modelo %}Editar Modelo{% else %}Cadastrar Modelo{% endif %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+  </form>
+</div>
 {% endblock %}
