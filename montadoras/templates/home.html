@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Bem-vindo!</h1>
-<p>O que você deseja visualizar?</p>
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-column align-items-center justify-content-center m-5">
+    <h1 class="mb-3">Bem-vindo ao PATROCARS!</h1>
+    <img src="https://media1.tenor.com/m/sc7NezrjKDoAAAAd/cat-driving-car-cat.gif" alt="" width="350px" />
+  </div>
 
-<div class="list-group">
-  <a href="{% url 'montadora_list' %}" class="list-group-item list-group-item-action">
-    Visualizar Montadoras
-  </a>
-  <a href="{% url 'modelo_list' %}" class="list-group-item list-group-item-action">
-    Visualizar Modelos
-  </a>
-  <a href="{% url 'veiculo_list' %}" class="list-group-item list-group-item-action">
-    Visualizar Veículos
-  </a>
+  <div class="d-flex flex-column align-items-center list-group justify-content-center m-5">
+    <p>O que você deseja visualizar?</p>
+    <a href="{% url 'montadora_list' %}" class="list-group-item list-group-item-action">
+      Visualizar Montadoras
+    </a>
+    <a href="{% url 'modelo_list' %}" class="list-group-item list-group-item-action">
+      Visualizar Modelos
+    </a>
+    <a href="{% url 'veiculo_list' %}" class="list-group-item list-group-item-action">
+      Visualizar Veículos
+    </a>
+  </div>
 </div>
 {% endblock %}
